@@ -18,3 +18,13 @@ export const filtersPopulationMaximumFilter = createSelector(
     getFiltersReducerState,
     ({ population_filter_maximum }) => population_filter_maximum
 );
+
+export const filtersPopulationMinimumFilterTemp = createSelector(
+    getFiltersReducerState,
+    ({ population_filter_minimum_temp }) => population_filter_minimum_temp
+);
+
+export const filtersPopulationMaximumFilterTemp = createSelector(
+    getFiltersReducerState,
+    ({ population_filter_maximum_temp }) => population_filter_maximum_temp
+);

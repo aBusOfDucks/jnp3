@@ -1,14 +1,12 @@
 
 import { useDispatch } from 'react-redux';
-import {setNameFilter} from "../reducers.jsx";
-import {fetchCities} from "../../map/overpass/reducer.jsx";
+import {setNameFilterTemp} from "../reducers.jsx";
 
 export default function NameFilters() {
     const dispatch = useDispatch();
 
     const changeFilter = (event) => {
-        dispatch(setNameFilter(event.target.value));
-        dispatch(fetchCities());
+        dispatch(setNameFilterTemp(event.target.value));
     };
 
     return (

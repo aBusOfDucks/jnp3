@@ -1,26 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {setPopulationFilterMaximum, setPopulationFilterMinimum} from "../reducers.jsx";
-import {fetchCities} from "../../map/overpass/reducer.jsx";
-import {filtersPopulationMaximumFilter, filtersPopulationMinimumFilter} from "../selectors.jsx";
+import {setPopulationFilterMaximumTemp, setPopulationFilterMinimumTemp} from "../reducers.jsx";
+import {filtersPopulationMaximumFilterTemp, filtersPopulationMinimumFilterTemp} from "../selectors.jsx";
 import {INPUT_STEP, MAX_POPULATION} from "./const.jsx";
 
 export default function PopulationFilters() {
     const dispatch = useDispatch();
-    const minimumFilter = useSelector(filtersPopulationMinimumFilter);
-    const maximumFilter = useSelector(filtersPopulationMaximumFilter);
+    const minimumFilter = useSelector(filtersPopulationMinimumFilterTemp);
+    const maximumFilter = useSelector(filtersPopulationMaximumFilterTemp);
 
     const changeMinimalFilter = (event) => {
-        dispatch(setPopulationFilterMinimum(parseInt(event.target.value)));
+        dispatch(setPopulationFilterMinimumTemp(parseInt(event.target.value)));
         if(minimumFilter > maximumFilter)
-            dispatch(setPopulationFilterMaximum(minimumFilter));
-        dispatch(fetchCities);
+            dispatch(setPopulationFilterMaximumTemp(minimumFilter));
     };
 
     const changeMaximalFilter = (event) => {
-        dispatch(setPopulationFilterMaximum(parseInt(event.target.value)));
+        dispatch(setPopulationFilterMaximumTemp(parseInt(event.target.value)));
         if (maximumFilter < minimumFilter)
-            dispatch(setPopulationFilterMinimum(maximumFilter));
-        dispatch(fetchCities);
+            dispatch(setPopulationFilterMinimumTemp(maximumFilter));
     };
 
     return (

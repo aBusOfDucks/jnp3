@@ -14,7 +14,7 @@ export default function DarkModeButton() {
     };
 
     return (
-        <button onClick={changeTheme} class="darkModeButton">
+        <button onClick={changeTheme}>
             {darkMode ? 'Disable Dark Mode' : 'Enable Dark Mode'}
         </button>
     );

@@ -12,9 +12,6 @@ export const overpassEpic = (action$, state$) =>
         mergeMap(() =>
             from(fetchCitiesData(state$.value.overpass.bounds)).pipe(
                 map((cities) => {
-                    console.log(Number(cities[0].tags.population));
-                    console.log(state$.value.filters.population_filter_minimum);
-                    console.log(state$.value.filters.population_filter_maximum);
                     return cities.filter((city) =>
                         city.tags.name.toLowerCase().includes((state$.value.filters.name_filter).toLowerCase())
                     ).filter((city) =>
